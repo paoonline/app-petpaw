@@ -55,23 +55,23 @@ export const ProductList = props => {
             </TouchableOpacity>
           ))}
         </ScrollView>
+        <MarginTop px={20}>
+          <FlexRow>
+            <MarginTop px={4}>
+              <Text>{productType.length} products</Text>
+            </MarginTop>
+            <Picker
+              selectedValue={'Popular'}
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{height: 20, width: 120}}
+              onValueChange={(itemValue, itemIndex) => {}}>
+              <Picker.Item label="Popular" value="Popular" />
+            </Picker>
+          </FlexRow>
+        </MarginTop>
       </PaddingLR>
       <ScrollView contentContainerStyle={styleScollViewGlow}>
         <PaddingLR>
-          <MarginTop px={20}>
-            <FlexRow>
-              <MarginTop px={4}>
-                <Text>{productType.length} products</Text>
-              </MarginTop>
-              <Picker
-                selectedValue={'Popular'}
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={{height: 20, width: 120}}
-                onValueChange={(itemValue, itemIndex) => {}}>
-                <Picker.Item label="Popular" value="Popular" />
-              </Picker>
-            </FlexRow>
-          </MarginTop>
           <View style={flexCardProduct}>
             {productType.map(val => (
               <CardProduct
