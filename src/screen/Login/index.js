@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   Text,
   TextInput,
@@ -19,14 +19,17 @@ import {
   ButtonSubmit,
   styleScollViewGlow,
 } from '../../components';
+import {ProductStoreContext} from '../../store';
 import {ROUTE_SCREEN} from '../../constant';
 
 export const Login = props => {
+  const list = useContext(ProductStoreContext);
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   const LogoutHandler = () => {
     props.navigation.navigate(ROUTE_SCREEN.MAIN_LAYOUT);
+    list.setToken(true);
     AsyncStorage.setItem('accessToken', 'true');
   };
 

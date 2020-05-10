@@ -22,6 +22,8 @@ import {numberWithCommas} from '../../helper/functions';
 export const MyBags = props => {
   const list = useContext(ProductStoreContext);
   const goToCheckout = () => {
+    list.setBag([]);
+    list.setTotalPrice(0);
     if (list.MyBag.length > 0) {
       props.navigation.navigate(ROUTE_SCREEN.CHECKOUT_SCREEN);
     } else {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {
@@ -16,13 +16,16 @@ import {
   styleScollViewGlow,
 } from '../../components';
 import {ROUTE_SCREEN} from '../../constant';
+import {ProductStoreContext} from '../../store';
 
 export const Profile = props => {
+  const list = useContext(ProductStoreContext);
   const Menu = ['Explore', 'Shop', 'Collection', 'Blog', 'Gallery', 'About'];
   const MenuBottom = ['Profile', 'Settings', 'Log out'];
 
   const Logout = () => {
     props.navigation.navigate(ROUTE_SCREEN.LOGIN_LAYOUT);
+    list.setToken(false);
     AsyncStorage.removeItem('accessToken');
   };
 

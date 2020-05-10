@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useContext} from 'react';
+import React from 'react';
 import {ScrollView, View, Text} from 'react-native';
 import {
   HeaderText,
@@ -12,13 +12,9 @@ import {
   PaddingLR,
 } from '../../components';
 import {ROUTE_SCREEN} from '../../constant';
-import {ProductStoreContext} from '../../store';
 
 export const Checkout = props => {
-  const list = useContext(ProductStoreContext);
   const goToMain = () => {
-    list.setBag([]);
-    list.setTotalPrice(0);
     props.navigation.navigate(ROUTE_SCREEN.MAIN_LAYOUT);
   };
 
