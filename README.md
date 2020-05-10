@@ -1,5 +1,5 @@
 first install
-yarn or npm install
+yarn or npm install <br>
 yarn or npm run android
 
 set ipv4 to localhost to ./config.js
